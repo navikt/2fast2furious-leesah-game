@@ -22,7 +22,9 @@ internal class QuizApplicationTest {
     fun `håndtere arithmetic`(){
 
         val qa = QuizApplication("too-fast-too-furious")
-        qa.handle(Question(category = "arithemtic", question = "82 - 36"))
+        qa.handle(Question(category = "arithmetic", question = "82 - 36"))
+        val mes = qa.messages()
+        assertEquals((82-36).toString(), (mes[0] as Answer).answer)
 
 
 

@@ -17,9 +17,11 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
 
-        if (question.category == "arithemtic") handleArithmetic(question)
+        if (question.category == "arithmetic") handleArithmetic(question)
 
-        //if (question.category == "make-ingress")
+        if (question.category == "make-ingress") makeIngress(question)
+
+        if (question.category == "NAV") returnNAV(question)
 
 
 
@@ -45,6 +47,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         val del = " "
         val list = q.split(del)
         var final_val = 0
+        println(list)
         if (list[1].equals("+")) {
             final_val = list[0].toInt() + list[2].toInt()
         }
@@ -62,7 +65,18 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     }
     private fun makeIngress(question: Question) {
-        answer(question.category, question.id(), "https://too-fast-too-furious.dev.intern.nav.no")
+        answer(question.category, question.messageId, "https://too-fast-too-furious.dev.intern.nav.no")
+    }
+
+    private fun returnNAV(question: Question){
+        val q = question.question
+
+        if (q.contains("applikasjonsplatformen")){
+            answer(question.category, question.messageId, "NAIS")
+        }
+        else if (q.contains("nettside")){
+            answer(question.category, question.messageId, "detsombetyrnoe.no")
+        }
     }
 
 }
