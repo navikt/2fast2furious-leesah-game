@@ -19,6 +19,8 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
         if (question.category == "arithemtic") handleArithmetic(question)
 
+        //if (question.category == "make-ingress")
+
 
 
     }
@@ -55,6 +57,12 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         else if (list[1].equals("/")) {
             final_val = (list[0].toInt() / list[2].toInt()).toInt()
         }
-        answer(question.category, question.id(), final_val.toString())
+        println(final_val)
+        answer(question.category, question.messageId, final_val.toString())
 
-} }
+    }
+    private fun makeIngress(question: Question) {
+        answer(question.category, question.id(), "https://too-fast-too-furious.dev.intern.nav.no")
+    }
+
+}
