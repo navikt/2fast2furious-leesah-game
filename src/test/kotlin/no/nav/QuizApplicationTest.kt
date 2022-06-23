@@ -18,4 +18,14 @@ internal class QuizApplicationTest {
         assertEquals(teamNavn, (messages[0] as Answer).answer)
     }
 
+    @Test
+    fun `håndtere arithmetic`(){
+
+        val qa = QuizApplication("too-fast-too-furious")
+        qa.handle(Question(category = "arithemtic", question = "82 - 36"))
+
+
+
+    }
+
 }
