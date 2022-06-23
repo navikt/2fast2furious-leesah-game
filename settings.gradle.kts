@@ -1,3 +1,3 @@
 
-rootProject.name = "2fast2furious-leesah-game"
+rootProject.name = "too-fast-too-furious-leesah-game"
 
